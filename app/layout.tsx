@@ -23,6 +23,10 @@ export const metadata: Metadata = {
     "Full Stack Engineer",
     "Columbus Ohio",
   ],
+  icons: {
+    icon: "/icon.svg",
+    apple: "/icon.svg",
+  },
   openGraph: {
     title: "Zach McGuckin | Software Engineer",
     description:
