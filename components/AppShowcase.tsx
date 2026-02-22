@@ -68,7 +68,7 @@ export default function AppShowcase() {
           </p>
         </RevealOnScroll>
 
-        <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-10 md:gap-12">
+        <div className="grid grid-cols-3 items-start justify-items-center gap-x-4 gap-y-8 sm:grid-cols-4 sm:gap-x-10 md:grid-cols-7 md:gap-x-8">
           {apps.map((app, i) => (
             <RevealOnScroll key={app.name} delay={i * 60}>
               <AppIcon {...app} />
