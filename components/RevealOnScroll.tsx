@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 
 interface Props {
   children: ReactNode;
@@ -14,10 +14,13 @@ export default function RevealOnScroll({
   delay = 0,
 }: Props) {
   const ref = useRef<HTMLDivElement>(null);
+  const [jsReady, setJsReady] = useState(false);
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+
+    setJsReady(true);
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -34,7 +37,7 @@ export default function RevealOnScroll({
   }, [delay]);
 
   return (
-    <div ref={ref} className={`reveal ${className}`}>
+    <div ref={ref} className={`reveal ${jsReady ? "not-visible" : ""} ${className}`}>
       {children}
     </div>
   );
